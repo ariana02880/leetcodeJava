@@ -1,8 +1,5 @@
-// import java.util.HashMap;
+// package lc;
 
-// import javax.swing.plaf.basic.BasicInternalFrameTitlePane.MaximizeAction;
-
-// import com.sun.javafx.image.IntPixelAccessor;
 
 // // Definition for singly-linked list.
 // class ListNode {
@@ -19,11 +16,12 @@
 //     TreeNode(int x) { val = x; }
 // }
 
-// public class Solution {
+// class Solution {
 //   public int trap(int[] height) {
 //       int res = 0, mx = 0, n = height.length;
 //       int[] l = new int[n];
 //       int[] r = new int[n];
+//       // left, the greatest data
 //       for (int i = 0; i < n; ++i) {
 //           l[i] = mx;
 //           mx = Math.max(mx, height[i]);
@@ -48,7 +46,7 @@
 // public static void main(String arg[]) {
 // 		Solution test=new Solution();
 		
-// 		int[] digits=new int[] {2,0,2};
+// 		int[] digits=new int[] {0,1,0,2,1,0,1,3,2,1,2,1};
 // 		int a=test.trap(digits);
 // 		System.out.println("Hello World");
 
