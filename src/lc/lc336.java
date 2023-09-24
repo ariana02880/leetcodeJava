@@ -1,23 +1,23 @@
-//package lc;
-//import java.lang.*;
-//import java.io.*;
+// package lc;
+// import java.lang.*;
+// import java.io.*;
 // // Definition for singly-linked list.
-//class ListNode {
+// class ListNode {
 //      int val;
 //      ListNode next;
 //     ListNode(int x) { val = x; }
-//}
+// }
 // //Definition for a binary tree node.
-//class TreeNode {
+// class TreeNode {
 //     int val;
 //     TreeNode left;
 //     TreeNode right;
 //     TreeNode(int x) { val = x; }
 // }
-//
-//class Solution {
+
+// class Solution {
 //    public List<List<Integer>> palindromePairs(String[] words) {
-//        
+       
 //    }
 //    public boolean isP(String s) {
 //    	int n=s.length();
@@ -29,13 +29,13 @@
 //    	}
 //    	return true;
 //    }
-//}
-//public class lc {
-//	public static void main(String arg[]) {
-//		Solution test=new Solution();
-//		
-//		Object a=test.plusOne(digits);
-//		System.out.println("Hello World");
-//
-//	}
-//}
+// }
+// public class lc336 {
+// 	public static void main(String arg[]) {
+// 		Solution test=new Solution();
+		
+// 		Object a=test.plusOne(digits);
+// 		System.out.println("Hello World");
+
+// 	}
+// }
