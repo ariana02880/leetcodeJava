@@ -15,13 +15,13 @@
 //     }
 
 //     TreeNode(int val) {
-//         this.val = val;
+//         val = val;
 //     }
 
 //     TreeNode(int val, TreeNode left, TreeNode right) {
-//         this.val = val;
-//         this.left = left;
-//         this.right = right;
+//         val = val;
+//         left = left;
+//         right = right;
 //     }
 // }
 
@@ -45,96 +45,96 @@
 // }
 
 
-// // way 1: 
-// // class Solution {
-// //     public TreeNode str2tree(String s) {
-// //         if (s == null || s.length() == 0)
-// //             return null;
-// //         int firstParen = s.indexOf("(");
-// //         int val = firstParen == -1 ? Integer.parseInt(s) : Integer.parseInt(s.substring(0, firstParen));
-// //         TreeNode cur = new TreeNode(val);
-
-// //         if (firstParen == -1)
-// //             return cur;
-// //         int start = firstParen, leftParenCount = 0;
-// //         for (int i = start; i < s.length(); i++) {
-// //             if (s.charAt(i) == '(')
-// //                 leftParenCount++;
-// //             else if (s.charAt(i) == ')')
-// //                 leftParenCount--;
-// //             if (leftParenCount == 0 && start == firstParen) {
-// //                 cur.left = str2tree(s.substring(start + 1, i));
-// //                 start = i + 1;
-// //             } else if (leftParenCount == 0)
-// //                 cur.right = str2tree(s.substring(start + 1, i));
-// //         }
-// //         return cur;
-// //     }
-// // }
-
-
-
-
-// // way 2:
+// //way 1: 
 // class Solution {
 //     public TreeNode str2tree(String s) {
-//         return this.str2treeInternal(s, 0).getKey();
-//     }
-    
-//     public Pair<Integer, Integer> getNumber(String s, int index) {
-        
-//         boolean isNegative = false;
-        
-//         // A negative number
-//         if (s.charAt(index) == '-') {
-//             isNegative = true;
-//             index++;
+//         if (s == null || s.length() == 0)
+//             return null;
+//         int firstParen = s.indexOf("(");
+//         int val = firstParen == -1 ? Integer.parseInt(s) : Integer.parseInt(s.substring(0, firstParen));
+//         TreeNode cur = new TreeNode(val);
+
+//         if (firstParen == -1)
+//             return cur;
+//         int start = firstParen, leftParenCount = 0;
+//         for (int i = start; i < s.length(); i++) {
+//             if (s.charAt(i) == '(')
+//                 leftParenCount++;
+//             else if (s.charAt(i) == ')')
+//                 leftParenCount--;
+//             if (leftParenCount == 0 && start == firstParen) {
+//                 cur.left = str2tree(s.substring(start + 1, i));
+//                 start = i + 1;
+//             } else if (leftParenCount == 0)
+//                 cur.right = str2tree(s.substring(start + 1, i));
 //         }
-            
-//         int number = 0;
-//         while (index < s.length() && Character.isDigit(s.charAt(index))) {
-//             number = number * 10 + (s.charAt(index) - '0');
-//             index++;
-//         }
-        
-//         return new Pair<Integer, Integer>(isNegative ? -number : number, index);
-//     } 
-    
-//     public Pair<TreeNode, Integer> str2treeInternal(String s, int index) {
-        
-//         if (index == s.length()) {
-//             return new Pair<TreeNode, Integer>(null, index);
-//         }
-        
-//         // Start of the tree will always contain a number representing
-//         // the root of the tree. So we calculate that first.
-//         Pair<Integer, Integer> numberData = this.getNumber(s, index);
-//         int value = numberData.getKey();
-//         index = numberData.getValue();
-        
-//         TreeNode node = new TreeNode(value);
-//         Pair<TreeNode, Integer> data;
-        
-//         // Next, if there is any data left, we check for the first subtree
-//         // which according to the problem statement will always be the left child.
-//         if (index < s.length() && s.charAt(index) == '(') {
-//             data = this.str2treeInternal(s, index + 1);
-//             node.left = data.getKey();
-//             index = data.getValue();
-//         }
-            
-        
-//         // Indicates a right child
-//         if (node.left != null && index < s.length() && s.charAt(index) == '(') {
-//             data = this.str2treeInternal(s, index + 1);
-//             node.right = data.getKey();
-//             index = data.getValue();
-//         }
-            
-        
-//         return new Pair<TreeNode, Integer>(node, index < s.length() && s.charAt(index) == ')' ? index + 1 : index);
+//         return cur;
 //     }
 // }
+
+
+
+
+// // // way 2:
+// // class Solution {
+// //     public TreeNode str2tree(String s) {
+// //         return str2treeInternal(s, 0).getKey();
+// //     }
+    
+// //     public Pair<Integer, Integer> getNumber(String s, int index) {
+        
+// //         boolean isNegative = false;
+        
+// //         // A negative number
+// //         if (s.charAt(index) == '-') {
+// //             isNegative = true;
+// //             index++;
+// //         }
+            
+// //         int number = 0;
+// //         while (index < s.length() && Character.isDigit(s.charAt(index))) {
+// //             number = number * 10 + (s.charAt(index) - '0');
+// //             index++;
+// //         }
+        
+// //         return new Pair<Integer, Integer>(isNegative ? -number : number, index);
+// //     } 
+    
+// //     public Pair<TreeNode, Integer> str2treeInternal(String s, int index) {
+        
+// //         if (index == s.length()) {
+// //             return new Pair<TreeNode, Integer>(null, index);
+// //         }
+        
+// //         // Start of the tree will always contain a number representing
+// //         // the root of the tree. So we calculate that first.
+// //         Pair<Integer, Integer> numberData = getNumber(s, index);
+// //         int value = numberData.getKey();
+// //         index = numberData.getValue();
+        
+// //         TreeNode node = new TreeNode(value);
+// //         Pair<TreeNode, Integer> data;
+        
+// //         // Next, if there is any data left, we check for the first subtree
+// //         // which according to the problem statement will always be the left child.
+// //         if (index < s.length() && s.charAt(index) == '(') {
+// //             data = str2treeInternal(s, index + 1);
+// //             node.left = data.getKey();
+// //             index = data.getValue();
+// //         }
+            
+        
+// //         // Indicates a right child
+// //         if (node.left != null && index < s.length() && s.charAt(index) == '(') {
+// //             data = str2treeInternal(s, index + 1);
+// //             node.right = data.getKey();
+// //             index = data.getValue();
+// //         }
+            
+        
+// //         return new Pair<TreeNode, Integer>(node, index < s.length() && s.charAt(index) == ')' ? index + 1 : index);
+// //     }
+// // }
 
 // public class lc536 {
 //     public static void main(String arg[]) {
